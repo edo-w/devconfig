@@ -1,4 +1,4 @@
-# @edo-x/devconfig
+# @edo-w/devconfig
 
 ## 0.1.0
 

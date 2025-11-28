@@ -1,9 +1,9 @@
 {
-  "name": "@edo-x/devconfig",
-  "version": "0.1.0",
+  "name": "@edo-w/devconfig",
+  "version": "0.1.2",
   "description": "base configs for edo projects",
   "repository": {
-    "url": "https://github.com/edo-x/devconfig.git"
+    "url": "https://github.com/edo-w/devconfig.git"
   },
   "type": "module",
   "license": "Apache-2.0",
