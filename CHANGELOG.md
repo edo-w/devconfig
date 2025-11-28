@@ -1,5 +1,11 @@
 # @edo-w/devconfig
 
+## 0.6.0
+
+### Minor Changes
+
+- f0e31c6: update action workflow
+
 ## 0.5.0
 
 ### Minor Changes
