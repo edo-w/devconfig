@@ -33,9 +33,7 @@ jobs:
       - name: Create PR / Publish Release
         uses: changesets/action@v1.5.3
         with:
-          publish: pnpm publish --access=public
           commit: "ci: release [skip ci]"
-          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
