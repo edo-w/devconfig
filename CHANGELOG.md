@@ -1,5 +1,11 @@
 # @edo-w/devconfig
 
+## 0.8.0
+
+### Minor Changes
+
+- a8ebfe6: fix package layout
+
 ## 0.7.0
 
 ### Minor Changes
