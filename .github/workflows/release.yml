@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ".changeset/**"
 
 permissions:
   contents: write
@@ -17,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.0
+        with:
+          fetch-depth: 0
+
       - uses: jdx/mise-action@v3
 
       - name: Cache pnpm store
@@ -33,8 +38,8 @@ jobs:
       - name: Create PR / Publish Release
         uses: changesets/action@v1.5.3
         with:
-          commit: "ci: release [skip ci]"
           publish: pnpm changeset publish
+          commit: "ci(changesets): version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
