@@ -4,23 +4,19 @@ on:
   push:
     branches:
       - master
-    paths:
-      - ".changeset/**"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   contents: write
   pull-requests: write
   id-token: write
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.0
-        with:
-          fetch-depth: 0
 
       - uses: jdx/mise-action@v3
 
@@ -35,11 +31,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Create PR / Publish Release
+      - name: Create PR or Publish
         uses: changesets/action@v1.5.3
         with:
           publish: pnpm changeset publish
-          commit: "ci(changesets): version packages"
+          commit: "ci: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
